@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Weathy-peasy - сервис для просмотра погоды</h1>
+        <div class="theme-switcher">
+            <div class="icon sun"></div>
+            <div class="icon moon"></div>
+            <button id="toggleTheme">Переключить тему</button>
+        </div>
+    </header>
+    <div class="card">
+        <h2>Введи свой город на русском или английском языке</h2>
+        <input type="text" id="city" placeholder="Город или город, страна">
+        <button id="btn">Показать погоду</button>
+    </div>
+    <div class="content">
+        <h2>Погода в твоем городе</h2>
+        <div class="result"></div>
+    </div>
+    <div class="notification">
+        <h2>Настрой уведомления для своего города</h2>
+        <input type="text" id="cityNotification" placeholder="Введите город" required />
+        <button id="btnStart">Старт уведомлений</button>
+        <button id="btnStop">Стоп уведомлений</button>
+        <p>Уведомления будут приходить каждые 30 минут</p>
+    </div>
+    
+    <script src="./js/main.js"></script>
+    <script src="./js/theme.js"></script>
+</body>
+</html>

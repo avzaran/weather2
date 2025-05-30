@@ -1,0 +1,259 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 0.5em;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul, ol {
+    list-style: none;
+}
+
+button {
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+input, button, textarea {
+    font: inherit;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #dee5e7;
+    color: #222;
+    transition: background 1.5s ease, color 1.5s ease;
+}
+
+body.night {
+    background: #0b1446;
+    color: #ccc;
+}
+
+.theme-switcher {
+    position: fixed;
+    top: 20px;
+    right: 90px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    z-index: 100;
+}
+
+.icon {
+    width: 50px;
+    height: 50px;
+    position: relative;
+    border-radius: 50%;
+    transition: transform 1s ease, opacity 1s ease;
+    cursor: default;
+}
+
+.sun {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    background: radial-gradient(circle, #FFD93B 60%, #F7B500 100%);
+    border-radius: 50%;
+    box-shadow: 0 0 15px 5px rgba(255, 217, 59, 0.7);
+    animation: rotateSun 20s linear infinite;
+}
+
+.sun::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 80px;
+    height: 80px;
+    margin-left: -40px;
+    margin-top: -40px;
+    pointer-events: none;
+    transform-origin: center;
+    animation: rotateSunRays 20s linear infinite;
+    background:
+        linear-gradient(#FFD93B 1px, transparent 1px) 50% 0;
+    background-repeat: no-repeat;
+    background-size: 20% 20%;
+}
+
+@keyframes rotateSunRays {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.moon {
+    background: radial-gradient(circle at 40% 50%, #f0e9d2 60%, #cfc6a8 100%);
+    position: relative;
+    box-shadow: 0 0 20px 5px rgba(240, 233, 210, 0.6);
+    clip-path: circle(50% at 50% 50%);
+    opacity: 0;
+    transform-origin: center;
+    transform: translateX(20px) scale(0.8);
+    transition: transform 1s ease, opacity 1s ease;
+}
+
+.moon::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 60%;
+    width: 40px;
+    height: 50px;
+    background: #0b1446;
+    border-radius: 50% / 100%;
+    transform: translate(-50%, -50%);
+    filter: drop-shadow(0 0 5px rgba(240, 233, 210, 0.4));
+}
+
+body.day .sun {
+  opacity: 1;
+  transform: translateX(0) scale(1);
+}
+
+body.day .moon {
+  opacity: 0;
+  transform: translateX(20px) scale(0.8);
+}
+
+body.night .sun {
+  opacity: 0;
+  transform: translateX(-20px) scale(0.8);
+}
+
+body.night .moon {
+  opacity: 1;
+  transform: translateX(0) scale(1);
+}
+
+#toggleTheme {
+    padding: 8px 14px;
+    font-size: 14px;
+    border: none;
+    background: #444;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    user-select: none;
+    transition: background 0.3s ease;
+}
+
+#toggleTheme:hover {
+    background: #666;
+}
+
+.content {
+    padding: 50px 20px;
+    transition: color 1.5s ease;
+}
+
+
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.card h2 {
+    font-size: 25px;
+    font-weight: 600;
+}
+input {
+    min-width: 30%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 17px;
+    font-weight: 500;
+}
+
+#btn{
+    min-width: 10%;
+    padding: 5px;
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 17px;
+    font-weight: 500;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (max-width: 600px) {
+    header {
+        font-size: 10px;
+    }
+    .theme-switcher {
+        position: fixed;
+        top: 50px;
+        right: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        z-index: 100;
+    }
+    .icon {
+        display: none;
+        }
+}
+
+.notification {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+#btnStart, #btnStop {
+    min-width: 10%;
+        padding: 5px;
+        margin-top: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 17px;
+        font-weight: 500;
+}
+
+
