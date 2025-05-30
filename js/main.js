@@ -1,4 +1,4 @@
-async function getWeather(city) {
+export async function getWeather(city) {
     const apiKey = '5f725fd9a82e44cd85b132129253005';
     const url = `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${encodeURIComponent(city)}&lang=ru`;
     

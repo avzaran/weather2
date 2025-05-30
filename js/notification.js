@@ -1,3 +1,4 @@
+import { getWeather } from './main.js';
 let updateIntervalId = null;
 
 async function showWeatherNotification(city) {
